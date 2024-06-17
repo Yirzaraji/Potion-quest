@@ -6,7 +6,7 @@ const Game = () => {
   return (
     <Fragment>
       <div className="test backgroundImageGame back text-center">
-        <Menu />
+        <Menu playerLevel={1} />
       </div>
     </Fragment>
   );

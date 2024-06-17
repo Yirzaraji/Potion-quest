@@ -18,7 +18,6 @@ const Modal = () => {
   const handleSubmit = () => {
     setClassTxt((prevState) => ({ ...prevState, isSubmit: true }));
     console.log("isSubmit");
-    navigate("/game");
   };
 
   const handleChange = (event) => {
@@ -49,6 +48,7 @@ const Modal = () => {
       };
       localStorage.setItem("userDatas", JSON.stringify(updatedClasseTxt));
       console.log("Saved to localStorage:", updatedClasseTxt);
+      navigate("/game");
     }
   }, [classeTxt.isSubmit]);
 
