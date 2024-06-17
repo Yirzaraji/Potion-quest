@@ -12,12 +12,12 @@ const Base = ({ children, name }) => {
       <div className="modal fixed p-4 bg-gray-900 rounded-lg shadow">
         <div className="modal-content">
           <div className="modal-header mb-5">
-            <h5 className="modal-title text-lg font-bold text-center mb-1">
+            <h5 className="modal-title text-lg font-bold mb-1 text-left">
               {name}
             </h5>
             <hr />
           </div>
-          <div className="modal-body mt-4">{children}</div>
+          <div className="modal-body mt-4 text-left">{children}</div>
           {/* <div className="modal-footer mt-4 text-center absolute hover:bg-green-900 bg-green-500 cursor-pointer rounded-lg">
             <button
               onClick={handleSubmit}

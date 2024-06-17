@@ -5,33 +5,70 @@ const Profil = ({ playerLevel }) => {
   console.log(userDatas.pseudo);
   return (
     <Fragment>
-      <div className="avatar-container">
-        <div className="avatar">Image</div>
-        <div className="player-informations">
-          Lvl <b>{playerLevel && playerLevel}</b> <b>{userDatas.classe}</b>{" "}
-          <b>{userDatas.pseudo}</b>
+      <div className="avatar-container flex items-center">
+        <div className="avatar w-2/5 flex justify-center border-r-2 border-gray-500 border-dotted">
+          <img
+            className="rounded-full"
+            src="https://placeholderimage.eu/api/155/155"
+            alt=""
+          />
         </div>
-        <div className="progress-bar"></div>
+        <div className="player-informations flex w-3/5 text-center">
+          <div className="level w-2/5 text-right">
+            <b className="text-3xl">{playerLevel && playerLevel}</b>
+            <b>Lvl</b>
+          </div>
+          <div className="player-name w-3/5 text-left text-3xl ml-4">
+            <b>{userDatas.classe}</b>
+            <br />
+            <b>{userDatas.pseudo}</b>
+          </div>
+          <div className="progress-bar"></div>
+        </div>
       </div>
       <div className="bio-container">
-        <h2>BIOGRAPHIE</h2>
+        <h2 className="mt-5">
+          <b>BIOGRAPHIE</b>
+        </h2>
         <hr />
-        <div className="biographie">
-          Magicien hors pair, Yirsa connut la renommée durant ses études à la
-          prestigieuse Académie de Magie de Dalaran. Son talent exceptionnel
-          pour les arcanes fut découvert très tôt, attirant l'attention des plus
-          grands Archimages de la cité.
+        <div className="biographie text-justify">
+          Magicien hors pair, <b>{userDatas.pseudo}</b> connut la renommée
+          durant ses études à la prestigieuse Académie de Magie de Dalaran. Son
+          talent exceptionnel pour les arcanes fut découvert très tôt, attirant
+          l'attention des plus grands Archimages de la cité.
         </div>
       </div>
       <div className="progress-container">
-        <h2>PROGRESSION</h2>
+        <h2 className="mt-5">
+          <b>PROGRESSION</b>
+        </h2>
         <hr />
-        <div className="progress-stepper">
-          <img src="" alt="" />
-          <img src="" alt="" />
-          <img src="" alt="" />
-          <img src="" alt="" />
-          <img src="" alt="" />
+        <div className="progress-stepper flex justify-evenly mt-4 mb-5">
+          <img
+            className="rounded-full"
+            src="https://placeholderimage.eu/api/80/80"
+            alt=""
+          />
+          <img
+            className="rounded-full"
+            src="https://placeholderimage.eu/api/80/80"
+            alt=""
+          />
+          <img
+            className="rounded-full"
+            src="https://placeholderimage.eu/api/80/80"
+            alt=""
+          />
+          <img
+            className="rounded-full"
+            src="https://placeholderimage.eu/api/80/80"
+            alt=""
+          />
+          <img
+            className="rounded-full"
+            src="https://placeholderimage.eu/api/80/80"
+            alt=""
+          />
         </div>
       </div>
     </Fragment>
