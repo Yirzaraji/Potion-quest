@@ -1,4 +1,5 @@
 import React, { Fragment } from "react";
+import "./Profil.css";
 
 const Profil = ({ playerLevel }) => {
   const userDatas = JSON.parse(localStorage.getItem("userDatas"));
@@ -44,31 +45,11 @@ const Profil = ({ playerLevel }) => {
         </h2>
         <hr />
         <div className="progress-stepper flex justify-evenly mt-4 mb-5">
-          <img
-            className="rounded-full"
-            src="https://placeholderimage.eu/api/80/80"
-            alt=""
-          />
-          <img
-            className="rounded-full"
-            src="https://placeholderimage.eu/api/80/80"
-            alt=""
-          />
-          <img
-            className="rounded-full"
-            src="https://placeholderimage.eu/api/80/80"
-            alt=""
-          />
-          <img
-            className="rounded-full"
-            src="https://placeholderimage.eu/api/80/80"
-            alt=""
-          />
-          <img
-            className="rounded-full"
-            src="https://placeholderimage.eu/api/80/80"
-            alt=""
-          />
+          <div className="step bg-blue-500 rounded-full">Chapter I</div>
+          <div className="step bg-gray-500 rounded-full">Chapter II</div>
+          <div className="step bg-gray-500 rounded-full">Chapter III</div>
+          <div className="step bg-gray-500 rounded-full">Chapter IV</div>
+          <div className="step bg-gray-500 rounded-full">Chapter V</div>
         </div>
       </div>
     </Fragment>
