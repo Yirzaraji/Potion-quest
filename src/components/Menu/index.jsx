@@ -1,6 +1,7 @@
 import React, { Fragment, useState } from "react";
 import Modal from "@/components/Modal/Base";
 import Profil from "@/components/Modal/Profil";
+import Inventory from "@/components/Modal/Inventory";
 import "./Menu.css";
 
 const Menu = ({ playerLevel }) => {
@@ -9,7 +10,7 @@ const Menu = ({ playerLevel }) => {
     {
       id: 0,
       name: "inventaire",
-      component: <Profil />,
+      component: <Inventory />,
     },
     {
       id: 1,
