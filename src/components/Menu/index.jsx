@@ -9,12 +9,12 @@ const Menu = ({ playerLevel }) => {
   const [menuBtn, setMenuBtn] = useState([
     {
       id: 0,
-      name: "inventaire",
+      name: "Inventaire",
       component: <Inventory />,
     },
     {
       id: 1,
-      name: "grimoire",
+      name: "Grimoire",
       component: <Profil />,
     },
     {

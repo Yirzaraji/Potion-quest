@@ -8,11 +8,7 @@ const Profil = ({ playerLevel }) => {
     <Fragment>
       <div className="avatar-container flex items-center">
         <div className="avatar w-2/5 flex justify-center border-r-2 border-gray-500 border-dotted">
-          <img
-            className="rounded-full"
-            src="https://placeholderimage.eu/api/155/155"
-            alt=""
-          />
+          <div className="rounded-full img-avatar"></div>
         </div>
         <div className="player-informations flex w-3/5 text-center">
           <div className="level w-2/5 text-right">

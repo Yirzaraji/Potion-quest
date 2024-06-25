@@ -1,44 +1,102 @@
 import React, { Fragment, useState } from "react";
-import { GiTwoCoins } from "react-icons/gi";
+import { PiFlowerTulipFill } from "react-icons/pi";
+import { GiFlowerStar } from "react-icons/gi";
+import {
+  GiTwoCoins,
+  GiHealthPotion,
+  GiPotionBall,
+  GiPotionOfMadness,
+} from "react-icons/gi";
 import "./Inventory.css";
 
 const Inventory = () => {
   //const userDatas = JSON.parse(localStorage.getItem("userDatas"));
-  const [items, setItems] = useState([
+
+  const initialItems = [
     {
       id: 0,
       name: "Fiole Vide",
-      icon: "testIcon",
+      icon: (
+        <GiPotionBall
+          style={{
+            fontSize: "3.5rem",
+            color: "white",
+          }}
+        />
+      ),
     },
     {
       id: 1,
       name: "Feuillereve",
-      icon: "testIcon",
+      icon: (
+        <GiFlowerStar
+          style={{
+            fontSize: "3.5rem",
+            color: "white",
+          }}
+        />
+      ),
     },
-  ]);
-
-  const boxes = [
-    "test",
-    "test",
-    "test",
-    "test",
-    "test",
-    "test",
-    "test",
-    "test",
-    "test",
-    "test",
-    "test",
-    "test",
-    "test",
-    "test",
-    "test",
+    {
+      id: 2,
+      name: "Tulipe",
+      icon: (
+        <PiFlowerTulipFill
+          style={{
+            fontSize: "3.5rem",
+            color: "white",
+          }}
+        />
+      ),
+    },
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
   ];
-  console.log(boxes.length);
+  const [items, setItems] = useState(initialItems);
+
+  const handleDragStart = (e, index) => {
+    e.dataTransfer.setData("draggedIndex", index);
+  };
+
+  const handleDragOver = (e) => {
+    e.preventDefault();
+    console.log("drag over");
+  };
+
+  const handleDrop = (e, index) => {
+    const draggedIndex = e.dataTransfer.getData("draggedIndex");
+    console.log("draggedIndex");
+    //if (draggedIndex === null) return;
+    const updatedItems = [...items];
+    const draggedItem = items[draggedIndex];
+
+    if (draggedIndex !== index) {
+      updatedItems[draggedIndex] = null;
+      updatedItems[index] = draggedItem;
+      setItems(updatedItems);
+    }
+  };
+
   return (
     <Fragment>
       <div className="inventory-search-bar mb-1">
         <input
+          className="w-full p-1"
           placeholder="Search"
           type="text"
           name="searchbar"
@@ -47,16 +105,26 @@ const Inventory = () => {
       </div>
       <hr />
       <div className="inventory-items flex flex-wrap mt-1 mb-5">
-        {boxes.map((box, index) => {
-          const item = items.find((item) => item.id === index);
-          console.log(item);
+        {items.map((item, index) => {
+          //const item = items.find((item) => item.id === index);
           return (
             <div
               key={index}
-              className="item-box hover:border-blue-500 border-4 bg-gray-500 m-1"
+              onDragOver={handleDragOver}
+              onDrop={(e) => handleDrop(e, index)}
+              className={`item-box flex justify-center items-center hover:border-blue-500 border-4 bg-gray-500 m-1`}
             >
-              box {index + 1}
-              {item && <div className="item">{item.name}</div>}
+              {/* slot {index + 1} */}
+              {item && (
+                <div
+                  id={index}
+                  onDragStart={(e) => handleDragStart(e, index)}
+                  draggable={true}
+                  className="item cursor-move"
+                >
+                  {item.icon}
+                </div>
+              )}
             </div>
           );
         })}

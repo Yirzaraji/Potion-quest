@@ -2,3 +2,9 @@
   width: 80px;
   height: 80px;
 }
+
+.img-avatar {
+  background-image: url("@/assets/mage.png");
+  width: 155px;
+  height: 155px;
+}
